@@ -16,7 +16,7 @@
             --text-light: #ffffff;
             --text-dark: #2c3e50;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             max-width: 1000px;
@@ -26,14 +26,14 @@
             color: var(--text-light);
             line-height: 1.6;
         }
-        
+
         .quick-links {
             margin-bottom: 20px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
-        
+
         .quick-links a {
             color: var(--primary-color);
             text-decoration: none;
@@ -42,12 +42,12 @@
             border-radius: 4px;
             transition: all 0.3s;
         }
-        
+
         .quick-links a:hover {
             background-color: rgba(52, 152, 219, 0.2);
             transform: translateY(-2px);
         }
-        
+
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -57,36 +57,36 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        
+
         h1 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
-        
+
         .developer {
             font-style: italic;
             margin-bottom: 15px;
             color: rgba(255,255,255,0.8);
         }
-        
+
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        
+
         @media (max-width: 768px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .semester-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
         }
-        
+
         .semester {
             background-color: #1a1a2e;
             border-radius: 8px;
@@ -95,12 +95,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             color: var(--text-light);
         }
-        
+
         .semester:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-        
+
         h2 {
             color: var(--primary-color);
             margin-top: 0;
@@ -109,24 +109,24 @@
             display: flex;
             align-items: center;
         }
-        
+
         h2 i {
             margin-right: 10px;
             color: var(--secondary-color);
         }
-        
+
         .input-group {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             position: relative;
         }
-        
+
         label {
             flex: 1;
             margin-right: 10px;
         }
-        
+
         input {
             padding: 10px 15px;
             border: 2px solid #2a3a6a;
@@ -138,26 +138,26 @@
             background-color: #16213e;
             color: white;
         }
-        
+
         input:focus {
             border-color: var(--primary-color);
             outline: none;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
-        
+
         .fee-display {
             font-weight: bold;
             font-size: 1.1rem;
             margin-top: 10px;
             color: #27ae60;
         }
-        
+
         .sidebar {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
+
         .summary-card {
             background-color: #1a1a2e;
             border-radius: 8px;
@@ -165,7 +165,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             color: var(--text-light);
         }
-        
+
         .total-fee {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -173,13 +173,13 @@
             padding: 20px;
             border-radius: 8px;
         }
-        
+
         #total-fee {
             font-size: 2.2rem;
             font-weight: bold;
             margin: 10px 0;
         }
-        
+
         .progress-bar {
             height: 10px;
             background-color: rgba(255,255,255,0.2);
@@ -187,46 +187,46 @@
             margin: 15px 0;
             overflow: hidden;
         }
-        
+
         .progress {
             height: 100%;
             background-color: white;
             width: 0%;
             transition: width 0.5s;
         }
-        
+
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 15px;
         }
-        
+
         .stat-item {
             text-align: center;
             padding: 15px;
             background-color: rgba(255,255,255,0.1);
             border-radius: 8px;
         }
-        
+
         .stat-value {
             font-size: 1.5rem;
             font-weight: bold;
             color: white;
         }
-        
+
         .stat-label {
             font-size: 0.8rem;
             opacity: 0.8;
         }
-        
+
         .buttons {
             display: flex;
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         button {
             padding: 12px 20px;
             border: none;
@@ -238,48 +238,48 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        
+
         #reset-btn {
             background-color: var(--accent-color);
             color: white;
         }
-        
+
         #reset-btn:hover {
             background-color: #c0392b;
         }
-        
+
         #print-btn {
             background-color: #f39c12;
             color: white;
         }
-        
+
         #print-btn:hover {
             background-color: #e67e22;
         }
-        
+
         #export-pdf-btn {
             background-color: #9b59b6;
             color: white;
         }
-        
+
         #export-pdf-btn:hover {
             background-color: #8e44ad;
         }
-        
+
         #exam-dates-btn {
             background-color: #1abc9c;
             color: white;
         }
-        
+
         #exam-dates-btn:hover {
             background-color: #16a085;
         }
-        
+
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -287,7 +287,7 @@
             color: #bdc3c7;
             font-size: 0.9rem;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -295,7 +295,7 @@
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         .social-links a {
             color: var(--text-light);
             font-size: 1.5rem;
@@ -308,14 +308,14 @@
             border-radius: 50%;
             background-color: rgba(255,255,255,0.1);
         }
-        
+
         .social-links a:hover {
             transform: translateY(-3px) scale(1.1);
             color: var(--primary-color);
             background-color: rgba(52, 152, 219, 0.2);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        
+
         /* Modal styles */
         .modal {
             display: none;
@@ -329,7 +329,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .modal-content {
             background-color: #1a1a2e;
             padding: 30px;
@@ -341,7 +341,7 @@
             position: relative;
             color: white;
         }
-        
+
         .close-modal {
             position: absolute;
             top: 15px;
@@ -350,7 +350,7 @@
             cursor: pointer;
             color: white;
         }
-        
+
         /* Toast notification */
         .toast {
             position: fixed;
@@ -365,18 +365,18 @@
             z-index: 1000;
             animation: fadeIn 0.3s;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         /* Tooltip */
         .tooltip {
             position: relative;
             display: inline-block;
         }
-        
+
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 200px;
@@ -395,12 +395,12 @@
             font-size: 0.9rem;
             font-weight: normal;
         }
-        
+
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
-        
+
         /* Print styles */
         @media print {
             .no-print {
@@ -417,25 +417,25 @@
                 page-break-inside: avoid;
             }
         }
-        
+
         /* Exam dates table */
         .exam-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
         }
-        
+
         .exam-table th, .exam-table td {
             padding: 10px;
             border: 1px solid #2a3a6a;
             text-align: left;
         }
-        
+
         .exam-table th {
             background-color: var(--primary-color);
             color: white;
         }
-        
+
         .exam-table tr:nth-child(even) {
             background-color: rgba(255,255,255,0.05);
         }
@@ -447,12 +447,12 @@
         <a href="https://jntuhresults.vercel.app/" target="_blank"><i class="fas fa-poll"></i> JNTUH Results</a>
         <a href="https://studentservices.jntuh.ac.in/oss/" target="_blank"><i class="fas fa-university"></i> JNTUH OSS</a>
     </div>
-    
+
     <header>
         <h1><i class="fas fa-calculator"></i> JNTUH Backlog Fee Calculator</h1>
         <div class="developer">Developed by UDAY KUMAR</div>
     </header>
-    
+
     <div class="dashboard">
         <div class="semester-grid">
             <div class="semester">
@@ -588,7 +588,7 @@
 
     <div class="footer">
         <p>© 2023 JNTUH Backlog Fee Calculator | Developed by UDAY KUMAR | For official fee structure, please refer to JNTUH website</p>
-        
+
         <div class="social-links">
             <a href="https://www.linkedin.com/in/uday-kumar-cybersecurity?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://wa.me/917815942387" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -598,6 +598,7 @@
             <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com/yourusername" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://m.me/100071051448261?hash=AbZ-osSbFUzjRr_Y&source=qr_link_share" target="_blank" title="Messenger"><i class="fab fa-facebook-messenger"></i></a>
         </div>
     </div>
 
@@ -673,39 +674,39 @@
             const closeModals = document.querySelectorAll('.close-modal');
             const printBreakdown = document.getElementById('print-breakdown');
             const toast = document.getElementById('toast');
-            
+
             // Add event listeners
             inputs.forEach(input => {
                 input.addEventListener('input', calculateFees);
             });
-            
+
             resetBtn.addEventListener('click', resetAll);
             printBtn.addEventListener('click', printResults);
             exportPdfBtn.addEventListener('click', exportToPDF);
             breakdownBtn.addEventListener('click', showFeeBreakdown);
             examDatesBtn.addEventListener('click', () => examModal.style.display = 'flex');
-            
+
             closeModals.forEach(btn => {
                 btn.addEventListener('click', function() {
                     this.closest('.modal').style.display = 'none';
                 });
             });
-            
+
             printBreakdown.addEventListener('click', printBreakdownOnly);
-            
+
             // Close modals when clicking outside
             window.addEventListener('click', (event) => {
                 if (event.target.classList.contains('modal')) {
                     event.target.style.display = 'none';
                 }
             });
-            
+
             // Load saved data if available
             loadData();
-            
+
             // Initial calculation
             calculateFees();
-            
+
             function calculateFees() {
                 let totalFee = 0;
                 let totalBacklogs = 0;
@@ -713,17 +714,17 @@
                 let maxFee = 0;
                 const semesterNames = ['1-1', '1-2', '2-1', '2-2', '3-1', '3-2', '4-1', '4-2'];
                 const semesterData = [];
-                
+
                 // Calculate fee for each semester
                 for (let i = 1; i <= 8; i++) {
                     const backlogCount = parseInt(document.getElementById(`sem${i}`).value) || 0;
                     let semesterFee = 0;
-                    
+
                     if (backlogCount > 0) {
                         affectedSemesters++;
                         totalBacklogs += backlogCount;
                     }
-                    
+
                     // Calculate fee based on backlog count
                     if (backlogCount === 1) {
                         semesterFee = 360;
@@ -734,62 +735,62 @@
                     } else if (backlogCount >= 4) {
                         semesterFee = 760;
                     }
-                    
+
                     // Track maximum fee
                     if (semesterFee > maxFee) {
                         maxFee = semesterFee;
                     }
-                    
+
                     // Store semester data
                     semesterData.push({
                         name: semesterNames[i-1],
                         backlogs: backlogCount,
                         fee: semesterFee
                     });
-                    
+
                     // Update semester fee display
                     document.getElementById(`fee${i}`).textContent = semesterFee;
                     totalFee += semesterFee;
                 }
-                
+
                 // Update statistics
                 document.getElementById('total-backlogs').textContent = totalBacklogs;
                 document.getElementById('affected-semesters').textContent = affectedSemesters;
                 document.getElementById('max-fee').textContent = `₹${maxFee}`;
-                document.getElementById('avg-fee').textContent = affectedSemesters > 0 
-                    ? `₹${Math.round(totalFee/affectedSemesters)}` 
+                document.getElementById('avg-fee').textContent = affectedSemesters > 0
+                    ? `₹${Math.round(totalFee/affectedSemesters)}`
                     : '₹0';
-                
+
                 // Update total fee display
                 document.getElementById('total-fee').textContent = `₹${totalFee}`;
-                
+
                 // Update progress bar (max possible fee is 8*760=6080)
                 const progressPercentage = (totalFee / 6080) * 100;
                 document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
-                
+
                 // Auto-save data
                 autoSaveData();
-                
+
                 return semesterData;
             }
-            
+
             function resetAll() {
                 // Reset all inputs to 0
                 inputs.forEach(input => {
                     input.value = 0;
                 });
-                
+
                 // Recalculate fees
                 calculateFees();
-                
+
                 // Show notification
                 showToast('All inputs have been reset to zero');
             }
-            
+
             function printResults() {
                 window.print();
             }
-            
+
             function autoSaveData() {
                 const data = {};
                 for (let i = 1; i <= 8; i++) {
@@ -797,7 +798,7 @@
                 }
                 localStorage.setItem('backlogData', JSON.stringify(data));
             }
-            
+
             function loadData() {
                 const savedData = localStorage.getItem('backlogData');
                 if (savedData) {
@@ -810,7 +811,7 @@
                     calculateFees();
                 }
             }
-            
+
             function exportToPDF() {
                 // In a real implementation, you would use a library like jsPDF
                 // This is a placeholder for the actual implementation
@@ -820,18 +821,18 @@
                 // 2. Add content from the calculator
                 // 3. Save the PDF
             }
-            
+
             function showFeeBreakdown() {
                 const semesterData = calculateFees();
                 const breakdownContent = document.getElementById('fee-breakdown-content');
                 breakdownContent.innerHTML = '';
-                
+
                 // Create a table for the breakdown
                 const table = document.createElement('table');
                 table.style.width = '100%';
                 table.style.borderCollapse = 'collapse';
                 table.style.marginTop = '10px';
-                
+
                 // Add table header
                 const thead = document.createElement('thead');
                 thead.innerHTML = `
@@ -842,11 +843,11 @@
                     </tr>
                 `;
                 table.appendChild(thead);
-                
+
                 // Add table body
                 const tbody = document.createElement('tbody');
                 let hasBacklogs = false;
-                
+
                 semesterData.forEach(semester => {
                     if (semester.backlogs > 0) {
                         hasBacklogs = true;
@@ -859,7 +860,7 @@
                         tbody.appendChild(row);
                     }
                 });
-                
+
                 if (!hasBacklogs) {
                     const row = document.createElement('tr');
                     row.innerHTML = `
@@ -880,33 +881,33 @@
                     `;
                     tbody.appendChild(totalRow);
                 }
-                
+
                 table.appendChild(tbody);
                 breakdownContent.appendChild(table);
-                
+
                 // Show the modal
                 feeModal.style.display = 'flex';
             }
-            
+
             function printBreakdownOnly() {
                 const printContent = document.getElementById('fee-breakdown-content').innerHTML;
                 const originalContent = document.body.innerHTML;
-                
+
                 document.body.innerHTML = `
                     <h1>JNTUH Backlog Fee Breakdown</h1>
                     ${printContent}
                     <p>Generated on ${new Date().toLocaleString()}</p>
                 `;
-                
+
                 window.print();
                 document.body.innerHTML = originalContent;
                 calculateFees(); // Recalculate in case values changed during print
             }
-            
+
             function showToast(message) {
                 toast.textContent = message;
                 toast.style.display = 'block';
-                
+
                 setTimeout(() => {
                     toast.style.display = 'none';
                 }, 3000);
