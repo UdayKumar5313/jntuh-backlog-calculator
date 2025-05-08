@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUH Backlog Fee Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .developer {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .semester-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .semester {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .semester:hover {
+            transform: translateY(-3px);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        label {
+            flex: 1;
+            margin-right: 10px;
+        }
+        
+        input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 70px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .fee-display {
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 8px;
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .summary-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .total-fee {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        #total-fee {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        #reset-btn {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        #reset-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        #save-btn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        #save-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .print-only {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            body {
+                background-color: white;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-calculator"></i> JNTUH Backlog Fee Calculator</h1>
+        <div class="developer">Developed by UDAY KUMAR</div>
+    </header>
+
+    <div class="dashboard">
+        <div class="semester-grid">
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 1-1 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem1" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee1">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 1-2 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem2" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee2">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 2-1 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem3" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee3">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 2-2 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem4" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee4">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 3-1 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem5" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee5">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 3-2 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem6" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee6">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 4-1 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem7" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee7">0</span></div>
+            </div>
+
+            <div class="semester">
+                <h2><i class="fas fa-book"></i> 4-2 Fee</h2>
+                <div class="input-group">
+                    <label>Number of backlogs:</label>
+                    <input type="number" min="0" id="sem8" value="0">
+                </div>
+                <div class="fee-display">Fee: ₹<span id="fee8">0</span></div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="summary-card">
+                <h2><i class="fas fa-info-circle"></i> Fee Structure</h2>
+                <ul>
+                    <li>1 Backlog: ₹360</li>
+                    <li>2 Backlogs: ₹460</li>
+                    <li>3 Backlogs: ₹560</li>
+                    <li>4 or more Backlogs: ₹760</li>
+                </ul>
+            </div>
+
+            <div class="total-fee">
+                <h2><i class="fas fa-wallet"></i> Total Fee</h2>
+                <div id="total-fee">₹0</div>
+                <div>Payable Amount</div>
+            </div>
+
+            <div class="summary-card">
+                <h2><i class="fas fa-chart-pie"></i> Statistics</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-backlogs">0</div>
+                        <div class="stat-label">Total Backlogs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="affected-semesters">0</div>
+                        <div class="stat-label">Affected Semesters</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="max-fee">₹0</div>
+                        <div class="stat-label">Highest Semester Fee</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="avg-fee">₹0</div>
+                        <div class="stat-label">Average Fee</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons no-print">
+                <button id="reset-btn"><i class="fas fa-redo"></i> Reset</button>
+                <button id="print-btn"><i class="fas fa-print"></i> Print</button>
+                <button id="save-btn"><i class="fas fa-save"></i> Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2023 JNTUH Backlog Fee Calculator | Developed by UDAY KUMAR</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const inputs = document.querySelectorAll('input[type="number"]');
+            const resetBtn = document.getElementById('reset-btn');
+            const printBtn = document.getElementById('print-btn');
+            const saveBtn = document.getElementById('save-btn');
+            
+            // Add event listeners
+            inputs.forEach(input => {
+                input.addEventListener('input', calculateFees);
+            });
+            
+            resetBtn.addEventListener('click', resetAll);
+            printBtn.addEventListener('click', printResults);
+            saveBtn.addEventListener('click', saveData);
+            
+            // Load saved data if available
+            loadData();
+            
+            // Initial calculation
+            calculateFees();
+            
+            function calculateFees() {
+                let totalFee = 0;
+                let totalBacklogs = 0;
+                let affectedSemesters = 0;
+                let maxFee = 0;
+                
+                // Calculate fee for each semester
+                for (let i = 1; i <= 8; i++) {
+                    const backlogCount = parseInt(document.getElementById(`sem${i}`).value) || 0;
+                    let semesterFee = 0;
+                    
+                    if (backlogCount > 0) {
+                        affectedSemesters++;
+                        totalBacklogs += backlogCount;
+                    }
+                    
+                    // Calculate fee based on backlog count
+                    if (backlogCount === 1) {
+                        semesterFee = 360;
+                    } else if (backlogCount === 2) {
+                        semesterFee = 460;
+                    } else if (backlogCount === 3) {
+                        semesterFee = 560;
+                    } else if (backlogCount >= 4) {
+                        semesterFee = 760;
+                    }
+                    
+                    // Track maximum fee
+                    if (semesterFee > maxFee) {
+                        maxFee = semesterFee;
+                    }
+                    
+                    // Update semester fee display
+                    document.getElementById(`fee${i}`).textContent = semesterFee;
+                    totalFee += semesterFee;
+                }
+                
+                // Update statistics
+                document.getElementById('total-backlogs').textContent = totalBacklogs;
+                document.getElementById('affected-semesters').textContent = affectedSemesters;
+                document.getElementById('max-fee').textContent = `₹${maxFee}`;
+                document.getElementById('avg-fee').textContent = affectedSemesters > 0 
+                    ? `₹${Math.round(totalFee/affectedSemesters)}` 
+                    : '₹0';
+                
+                // Update total fee display
+                document.getElementById('total-fee').textContent = `₹${totalFee}`;
+                
+                // Auto-save data
+                autoSaveData();
+            }
+            
+            function resetAll() {
+                // Reset all inputs to 0
+                inputs.forEach(input => {
+                    input.value = 0;
+                });
+                
+                // Recalculate fees
+                calculateFees();
+                
+                // Show notification
+                alert("All inputs have been reset to zero");
+            }
+            
+            function printResults() {
+                window.print();
+            }
+            
+            function saveData() {
+                const data = {};
+                for (let i = 1; i <= 8; i++) {
+                    data[`sem${i}`] = document.getElementById(`sem${i}`).value;
+                }
+                
+                localStorage.setItem('backlogData', JSON.stringify(data));
+                alert("Your data has been saved successfully!");
+                
+                // Visual feedback
+                saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+                setTimeout(() => {
+                    saveBtn.innerHTML = '<i class="fas fa-save"></i> Save';
+                }, 2000);
+            }
+            
+            function autoSaveData() {
+                const data = {};
+                for (let i = 1; i <= 8; i++) {
+                    data[`sem${i}`] = document.getElementById(`sem${i}`).value;
+                }
+                localStorage.setItem('backlogData', JSON.stringify(data));
+            }
+            
+            function loadData() {
+                const savedData = localStorage.getItem('backlogData');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    for (let i = 1; i <= 8; i++) {
+                        if (data[`sem${i}`] !== undefined) {
+                            document.getElementById(`sem${i}`).value = data[`sem${i}`];
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
